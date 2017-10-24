@@ -24,6 +24,8 @@ class Car{
     this.scoreBoard = document.getElementById('currentScore');
     document.getElementById('highScore').innerText = "Best "+document.cookie;
     this.score = 0;
+    this.borderCross = false;
+    this.playerCar.src = "playerCar1.png";
   }
   opponentCarReset(target,i){
     let base = -5;
@@ -59,6 +61,8 @@ class Car{
          apply(true,this.playerCar,top);
          apply(false,this.playerCar,left);
        }
+       else if(left<-5||left>85)
+          this.borderCross = true;
         if(x==-1)
            this.playerCar.style.transform = "rotateZ(85deg)"
         else if(x==1)
@@ -96,10 +100,11 @@ function start(){
        return;
    car = new Car();
    let interval = setInterval(function () {
-     if(car.is_damaged()){
+     if(car.borderCross||car.is_damaged()){
        clearInterval(interval);
        document.getElementById('messageBox').attributes[1].value = "true";
        car.gameOver = true;
+       car.playerCar.src = "damage.png";
          if(document.cookie == null || document.cookie == "")
            document.cookie = car.score;
          else{

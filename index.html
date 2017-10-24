@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Karthik Nedunchezhiyan</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="messageBox" data-show="true">
+       <p>Press SpaceBar to start</p>
+    </div>
+    <div id="scoreBoard">
+       <div id="currentScore"></div>
+       <div id="highScore"></div>
+    </div>
+    <div id="playArea">
+      <div style="top:-25%;" class="centerLine"></div>
+      <div style="top:8%;" class="centerLine"></div>
+      <div style="top:39%;" class="centerLine"></div>
+      <div style="top:70%;" class="centerLine"></div>
+      <img src="opponentCar1.png" alt="Car image" class="opponentCar">
+      <img src="opponentCar1.png" alt="Car image" class="opponentCar">
+      <img src="opponentCar1.png" alt="Car image" class="opponentCar">
+      <img src="playerCar1.png" alt="Car image" id="playerCar">
+    </div>
+    <button class="playButton" onmouseleave="stop()" onmouseover="run(-1,0)" id="leftButton">&larr;</button>
+    <button class="playButton" onmouseleave="stop()" onmouseover="run(1,0)" id="rightButton">&rarr;</button>
+    <button class="playButton" onmouseleave="stop()" onmouseover="run(0,-1)" id="topButton">&uarr;</button>
+    <button class="playButton" onmouseleave="stop()" onmouseover="run(0,1)" id="downButton">&darr;</button>
+    <button class="playButton" onmousedown="start()" id="startButton">start</button>
+  <script src="car.js" charset="utf-8"></script>
+  </body>
+</html>
